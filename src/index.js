@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import ReactDOM from "react-dom";
 import CssBaseline from "@mui/material/CssBaseline";
 import App from "./App";
 import "./style/style.css";
@@ -8,8 +8,7 @@ import { theme } from "./theme/index";
 import { GlobalContextWrapper } from "./context/global-context";
 import ErrorBoundary from "./components/error-boundary";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
+ReactDOM.render(
   <ErrorBoundary>
     <ThemeProvider theme={theme}>
       <GlobalContextWrapper>
@@ -17,5 +16,6 @@ root.render(
         <App />
       </GlobalContextWrapper>
     </ThemeProvider>
-  </ErrorBoundary>
+  </ErrorBoundary>,
+  document.getElementById("root")
 );
